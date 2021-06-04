@@ -1,0 +1,72 @@
+{
+  "name": "Exame",
+  "fields": [
+    {
+      "fieldName": "tipoexame",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorexame",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descontoconvenio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomemmedico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prerequisito",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "datasolicitacao",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dataresultado",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "medico",
+      "otherEntityRelationshipName": "nome",
+      "relationshipName": "nomemedico",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "resultadoExame",
+      "otherEntityRelationshipName": "exame",
+      "relationshipName": "tipoexame",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pagamentoExame",
+      "otherEntityRelationshipName": "exame",
+      "relationshipName": "valorexame"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contaClinica",
+      "otherEntityRelationshipName": "cpf",
+      "relationshipName": "contaClinica"
+    }
+  ],
+  "entityTableName": "exame",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131011"
+}

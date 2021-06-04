@@ -1,0 +1,30 @@
+{
+  "clinicHealthSimpleApp": {
+    "enderecoPaciente": {
+      "home": {
+        "title": "Endereco Pacientes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Endereco Paciente",
+        "createOrEditLabel": "Criar ou editar Endereco Paciente",
+        "notFound": "Nenhum Endereco Paciente encontrado"
+      },
+      "created": "Um novo Endereco Paciente foi criado com o identificador {{ param }}",
+      "updated": "Um Endereco Paciente foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Endereco Paciente foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Endereco Paciente {{ id }}?"
+      },
+      "detail": {
+        "title": "Endereco Paciente"
+      },
+      "id": "ID",
+      "cidade": "Cidade",
+      "logradouro": "Logradouro",
+      "bairro": "Bairro",
+      "numero": "Numero",
+      "referencia": "Referencia",
+      "cep": "Cep",
+      "paciente": "Paciente"
+    }
+  }
+}

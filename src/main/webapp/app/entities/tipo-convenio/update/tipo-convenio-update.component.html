@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tipo-convenio-heading"
+        data-cy="TipoConvenioCreateUpdateHeading"
+        jhiTranslate="clinicHealthSimpleApp.tipoConvenio.home.createOrEditLabel"
+      >
+        Create or edit a Tipo Convenio
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.tipoConvenio.convenio" for="field_convenio">Convenio</label>
+          <input type="text" class="form-control" name="convenio" id="field_convenio" data-cy="convenio" formControlName="convenio" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.tipoConvenio.codigoconvenio" for="field_codigoconvenio"
+            >Codigoconvenio</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="codigoconvenio"
+            id="field_codigoconvenio"
+            data-cy="codigoconvenio"
+            formControlName="codigoconvenio"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.tipoConvenio.nomeconvenio" for="field_nomeconvenio"
+            >Nomeconvenio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomeconvenio"
+            id="field_nomeconvenio"
+            data-cy="nomeconvenio"
+            formControlName="nomeconvenio"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.tipoConvenio.contato" for="field_contato">Contato</label>
+          <input type="text" class="form-control" name="contato" id="field_contato" data-cy="contato" formControlName="contato" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.tipoConvenio.contaClinica" for="field_contaClinica"
+            >Conta Clinica</label
+          >
+          <select class="form-control" id="field_contaClinica" data-cy="contaClinica" name="contaClinica" formControlName="contaClinica">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contaClinicaOption.id === editForm.get('contaClinica')!.value?.id ? editForm.get('contaClinica')!.value : contaClinicaOption
+              "
+              *ngFor="let contaClinicaOption of contaClinicasSharedCollection; trackBy: trackContaClinicaById"
+            >
+              {{ contaClinicaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -48,6 +48,18 @@ public class CacheConfiguration {
             createCache(cm, dev.clinic.simple.domain.User.class.getName());
             createCache(cm, dev.clinic.simple.domain.Authority.class.getName());
             createCache(cm, dev.clinic.simple.domain.User.class.getName() + ".authorities");
+            createCache(cm, dev.clinic.simple.domain.Paciente.class.getName());
+            createCache(cm, dev.clinic.simple.domain.Paciente.class.getName() + ".cpfs");
+            createCache(cm, dev.clinic.simple.domain.EnderecoPaciente.class.getName());
+            createCache(cm, dev.clinic.simple.domain.ContatoPaciente.class.getName());
+            createCache(cm, dev.clinic.simple.domain.ContaClinica.class.getName());
+            createCache(cm, dev.clinic.simple.domain.ContaClinica.class.getName() + ".cpfs");
+            createCache(cm, dev.clinic.simple.domain.TipoConvenio.class.getName());
+            createCache(cm, dev.clinic.simple.domain.Exame.class.getName());
+            createCache(cm, dev.clinic.simple.domain.Exame.class.getName() + ".valorexames");
+            createCache(cm, dev.clinic.simple.domain.Medico.class.getName());
+            createCache(cm, dev.clinic.simple.domain.PagamentoExame.class.getName());
+            createCache(cm, dev.clinic.simple.domain.ResultadoExame.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

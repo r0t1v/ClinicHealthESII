@@ -1,0 +1,27 @@
+{
+  "clinicHealthSimpleApp": {
+    "pagamentoExame": {
+      "home": {
+        "title": "Pagamento Exames",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Pagamento Exame",
+        "createOrEditLabel": "Criar ou editar Pagamento Exame",
+        "notFound": "Nenhum Pagamento Exame encontrado"
+      },
+      "created": "Um novo Pagamento Exame foi criado com o identificador {{ param }}",
+      "updated": "Um Pagamento Exame foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Pagamento Exame foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Pagamento Exame {{ id }}?"
+      },
+      "detail": {
+        "title": "Pagamento Exame"
+      },
+      "id": "ID",
+      "formapagamento": "Formapagamento",
+      "conteudo": "Conteudo",
+      "seliquidado": "Seliquidado",
+      "exame": "Exame"
+    }
+  }
+}

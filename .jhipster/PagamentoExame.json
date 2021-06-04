@@ -1,0 +1,35 @@
+{
+  "name": "PagamentoExame",
+  "fields": [
+    {
+      "fieldName": "formapagamento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "conteudo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seliquidado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "exame",
+      "otherEntityRelationshipName": "valorexame",
+      "relationshipName": "exame"
+    }
+  ],
+  "entityTableName": "pagamento_exame",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131013"
+}

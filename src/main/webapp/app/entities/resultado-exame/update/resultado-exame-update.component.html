@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resultado-exame-heading"
+        data-cy="ResultadoExameCreateUpdateHeading"
+        jhiTranslate="clinicHealthSimpleApp.resultadoExame.home.createOrEditLabel"
+      >
+        Create or edit a Resultado Exame
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.resultadoExame.descricao" for="field_descricao"
+            >Descricao</label
+          >
+          <input type="text" class="form-control" name="descricao" id="field_descricao" data-cy="descricao" formControlName="descricao" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.resultadoExame.prescricao" for="field_prescricao"
+            >Prescricao</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prescricao"
+            id="field_prescricao"
+            data-cy="prescricao"
+            formControlName="prescricao"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.resultadoExame.indicacao" for="field_indicacao"
+            >Indicacao</label
+          >
+          <input type="text" class="form-control" name="indicacao" id="field_indicacao" data-cy="indicacao" formControlName="indicacao" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.resultadoExame.contraindicacao" for="field_contraindicacao"
+            >Contraindicacao</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contraindicacao"
+            id="field_contraindicacao"
+            data-cy="contraindicacao"
+            formControlName="contraindicacao"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

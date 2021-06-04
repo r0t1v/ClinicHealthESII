@@ -1,0 +1,26 @@
+{
+  "clinicHealthSimpleApp": {
+    "contatoPaciente": {
+      "home": {
+        "title": "Contato Pacientes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Contato Paciente",
+        "createOrEditLabel": "Criar ou editar Contato Paciente",
+        "notFound": "Nenhum Contato Paciente encontrado"
+      },
+      "created": "Um novo Contato Paciente foi criado com o identificador {{ param }}",
+      "updated": "Um Contato Paciente foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Contato Paciente foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Contato Paciente {{ id }}?"
+      },
+      "detail": {
+        "title": "Contato Paciente"
+      },
+      "id": "ID",
+      "tipo": "Tipo",
+      "conteudo": "Conteudo",
+      "paciente": "Paciente"
+    }
+  }
+}

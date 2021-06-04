@@ -1,0 +1,55 @@
+{
+  "name": "Paciente",
+  "fields": [
+    {
+      "fieldName": "cpf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "contaClinica",
+      "otherEntityRelationshipName": "cpf",
+      "relationshipName": "cpf",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "enderecoPaciente",
+      "otherEntityRelationshipName": "paciente",
+      "relationshipName": "cpf"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contatoPaciente",
+      "otherEntityRelationshipName": "paciente",
+      "relationshipName": "cpf"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "contaClinica",
+      "otherEntityRelationshipName": "cpf",
+      "relationshipName": "cpf",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "paciente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131006"
+}

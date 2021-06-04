@@ -1,0 +1,52 @@
+{
+  "name": "ContaClinica",
+  "fields": [
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "senha",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "paciente",
+      "otherEntityRelationshipName": "cpf",
+      "relationshipName": "cpf",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tipoConvenio",
+      "otherEntityRelationshipName": "contaClinica",
+      "relationshipName": "cpf"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "exame",
+      "otherEntityRelationshipName": "contaClinica",
+      "relationshipName": "cpf"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "paciente",
+      "otherEntityRelationshipName": "cpf",
+      "relationshipName": "cpf",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "conta_clinica",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131009"
+}

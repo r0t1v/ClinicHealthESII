@@ -1,0 +1,32 @@
+{
+  "name": "ResultadoExame",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prescricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contraindicacao",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "resultado_exame",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131014"
+}
