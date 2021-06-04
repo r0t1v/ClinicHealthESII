@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="exame">
+      <h2 data-cy="exameDetailsHeading"><span jhiTranslate="clinicHealthSimpleApp.exame.detail.title">Exame</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ exame.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.tipoexame">Tipoexame</span></dt>
+        <dd>
+          <span>{{ exame.tipoexame }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.valorexame">Valorexame</span></dt>
+        <dd>
+          <span>{{ exame.valorexame }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.descontoconvenio">Descontoconvenio</span></dt>
+        <dd>
+          <span>{{ exame.descontoconvenio }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.nomemmedico">Nomemmedico</span></dt>
+        <dd>
+          <span>{{ exame.nomemmedico }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.prerequisito">Prerequisito</span></dt>
+        <dd>
+          <span>{{ exame.prerequisito }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.datasolicitacao">Datasolicitacao</span></dt>
+        <dd>
+          <span>{{ exame.datasolicitacao | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.dataresultado">Dataresultado</span></dt>
+        <dd>
+          <span>{{ exame.dataresultado | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.nomemedico">Nomemedico</span></dt>
+        <dd>
+          <div *ngIf="exame.nomemedico">
+            <a [routerLink]="['/medico', exame.nomemedico?.id, 'view']">{{ exame.nomemedico?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.tipoexame">Tipoexame</span></dt>
+        <dd>
+          <div *ngIf="exame.tipoexame">
+            <a [routerLink]="['/resultado-exame', exame.tipoexame?.id, 'view']">{{ exame.tipoexame?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.exame.contaClinica">Conta Clinica</span></dt>
+        <dd>
+          <div *ngIf="exame.contaClinica">
+            <a [routerLink]="['/conta-clinica', exame.contaClinica?.id, 'view']">{{ exame.contaClinica?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/exame', exame.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

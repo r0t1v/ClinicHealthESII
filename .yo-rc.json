@@ -42,7 +42,19 @@
     "jwtSecretKey": "MDJhZjBhOTVkNzkyZDQ5NjMxODMyOGUyYTlmZDcwZDlhYzg5YjBhNzI5M2Q5NjU5NGYyMTc3MGY0YjViZTYwODlhMzEwYTlkZDMzMTJkYmM2YTQzNTFjODI4ODc2NDRkZGFiMWY1MGU1YWU5NDc0ZDNmNDgyMDViODgyNzMxN2Y=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": [
+      "Paciente",
+      "EnderecoPaciente",
+      "ContatoPaciente",
+      "ContaClinica",
+      "TipoConvenio",
+      "Exame",
+      "Medico",
+      "PagamentoExame",
+      "ResultadoExame"
+    ],
+    "lastLiquibaseTimestamp": 1622812214000
   },
   "git-provider": "GitHub",
   "git-company": "r0t1v",

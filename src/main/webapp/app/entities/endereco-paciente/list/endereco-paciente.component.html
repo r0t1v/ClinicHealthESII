@@ -1,0 +1,126 @@
+<div>
+  <h2 id="page-heading" data-cy="EnderecoPacienteHeading">
+    <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.home.title">Endereco Pacientes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-endereco-paciente"
+        [routerLink]="['/endereco-paciente/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.home.createLabel"> Create a new Endereco Paciente </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="enderecoPacientes?.length === 0">
+    <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.home.notFound">No enderecoPacientes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="enderecoPacientes && enderecoPacientes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="cidade">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.cidade">Cidade</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="logradouro">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.logradouro">Logradouro</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="bairro">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.bairro">Bairro</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="numero">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.numero">Numero</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="referencia">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.referencia">Referencia</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cep">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.cep">Cep</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="paciente.id">
+            <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.paciente">Paciente</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enderecoPaciente of enderecoPacientes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/endereco-paciente', enderecoPaciente.id, 'view']">{{ enderecoPaciente.id }}</a>
+          </td>
+          <td>{{ enderecoPaciente.cidade }}</td>
+          <td>{{ enderecoPaciente.logradouro }}</td>
+          <td>{{ enderecoPaciente.bairro }}</td>
+          <td>{{ enderecoPaciente.numero }}</td>
+          <td>{{ enderecoPaciente.referencia }}</td>
+          <td>{{ enderecoPaciente.cep }}</td>
+          <td>
+            <div *ngIf="enderecoPaciente.paciente">
+              <a [routerLink]="['/paciente', enderecoPaciente.paciente?.id, 'view']">{{ enderecoPaciente.paciente?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/endereco-paciente', enderecoPaciente.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/endereco-paciente', enderecoPaciente.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(enderecoPaciente)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="enderecoPacientes && enderecoPacientes.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

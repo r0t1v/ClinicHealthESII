@@ -1,0 +1,30 @@
+{
+  "clinicHealthSimpleApp": {
+    "paciente": {
+      "home": {
+        "title": "Pacientes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Paciente",
+        "createOrEditLabel": "Criar ou editar Paciente",
+        "notFound": "Nenhum Paciente encontrado"
+      },
+      "created": "Um novo Paciente foi criado com o identificador {{ param }}",
+      "updated": "Um Paciente foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Paciente foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Paciente {{ id }}?"
+      },
+      "detail": {
+        "title": "Paciente"
+      },
+      "id": "ID",
+      "cpf": "Cpf",
+      "nome": "Nome",
+      "idade": "Idade",
+      "cpf": "Cpf",
+      "cpf": "Cpf",
+      "cpf": "Cpf",
+      "cpf": "Cpf"
+    }
+  }
+}

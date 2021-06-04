@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="medico">
+      <h2 data-cy="medicoDetailsHeading"><span jhiTranslate="clinicHealthSimpleApp.medico.detail.title">Medico</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ medico.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.medico.crm">Crm</span></dt>
+        <dd>
+          <span>{{ medico.crm }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.medico.nome">Nome</span></dt>
+        <dd>
+          <span>{{ medico.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.medico.graduacao">Graduacao</span></dt>
+        <dd>
+          <span>{{ medico.graduacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.medico.atuacao">Atuacao</span></dt>
+        <dd>
+          <span>{{ medico.atuacao }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/medico', medico.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-exame-heading" data-cy="ExameCreateUpdateHeading" jhiTranslate="clinicHealthSimpleApp.exame.home.createOrEditLabel">
+        Create or edit a Exame
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.tipoexame" for="field_tipoexame">Tipoexame</label>
+          <input type="text" class="form-control" name="tipoexame" id="field_tipoexame" data-cy="tipoexame" formControlName="tipoexame" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.valorexame" for="field_valorexame">Valorexame</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorexame"
+            id="field_valorexame"
+            data-cy="valorexame"
+            formControlName="valorexame"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.descontoconvenio" for="field_descontoconvenio"
+            >Descontoconvenio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descontoconvenio"
+            id="field_descontoconvenio"
+            data-cy="descontoconvenio"
+            formControlName="descontoconvenio"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.nomemmedico" for="field_nomemmedico"
+            >Nomemmedico</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomemmedico"
+            id="field_nomemmedico"
+            data-cy="nomemmedico"
+            formControlName="nomemmedico"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.prerequisito" for="field_prerequisito"
+            >Prerequisito</label
+          >
+          <textarea
+            class="form-control"
+            name="prerequisito"
+            id="field_prerequisito"
+            data-cy="prerequisito"
+            formControlName="prerequisito"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.datasolicitacao" for="field_datasolicitacao"
+            >Datasolicitacao</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_datasolicitacao"
+              data-cy="datasolicitacao"
+              type="datetime-local"
+              class="form-control"
+              name="datasolicitacao"
+              formControlName="datasolicitacao"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.dataresultado" for="field_dataresultado"
+            >Dataresultado</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dataresultado"
+              data-cy="dataresultado"
+              type="datetime-local"
+              class="form-control"
+              name="dataresultado"
+              formControlName="dataresultado"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.nomemedico" for="field_nomemedico">Nomemedico</label>
+          <select class="form-control" id="field_nomemedico" data-cy="nomemedico" name="nomemedico" formControlName="nomemedico">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="medicoOption.id === editForm.get('nomemedico')!.value?.id ? editForm.get('nomemedico')!.value : medicoOption"
+              *ngFor="let medicoOption of nomemedicosCollection; trackBy: trackMedicoById"
+            >
+              {{ medicoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.tipoexame" for="field_tipoexame">Tipoexame</label>
+          <select class="form-control" id="field_tipoexame" data-cy="tipoexame" name="tipoexame" formControlName="tipoexame">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resultadoExameOption.id === editForm.get('tipoexame')!.value?.id ? editForm.get('tipoexame')!.value : resultadoExameOption
+              "
+              *ngFor="let resultadoExameOption of tipoexamesCollection; trackBy: trackResultadoExameById"
+            >
+              {{ resultadoExameOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="clinicHealthSimpleApp.exame.contaClinica" for="field_contaClinica"
+            >Conta Clinica</label
+          >
+          <select class="form-control" id="field_contaClinica" data-cy="contaClinica" name="contaClinica" formControlName="contaClinica">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contaClinicaOption.id === editForm.get('contaClinica')!.value?.id ? editForm.get('contaClinica')!.value : contaClinicaOption
+              "
+              *ngFor="let contaClinicaOption of contaClinicasSharedCollection; trackBy: trackContaClinicaById"
+            >
+              {{ contaClinicaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

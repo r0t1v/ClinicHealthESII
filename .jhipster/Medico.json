@@ -1,0 +1,40 @@
+{
+  "name": "Medico",
+  "fields": [
+    {
+      "fieldName": "crm",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "graduacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "atuacao",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "exame",
+      "otherEntityRelationshipName": "nomemedico",
+      "relationshipName": "nome",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "medico",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210604131012"
+}

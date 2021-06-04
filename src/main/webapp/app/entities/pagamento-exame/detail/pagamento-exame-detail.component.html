@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pagamentoExame">
+      <h2 data-cy="pagamentoExameDetailsHeading">
+        <span jhiTranslate="clinicHealthSimpleApp.pagamentoExame.detail.title">Pagamento Exame</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pagamentoExame.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.pagamentoExame.formapagamento">Formapagamento</span></dt>
+        <dd>
+          <span>{{ pagamentoExame.formapagamento }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.pagamentoExame.conteudo">Conteudo</span></dt>
+        <dd>
+          <span>{{ pagamentoExame.conteudo }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.pagamentoExame.seliquidado">Seliquidado</span></dt>
+        <dd>
+          <span>{{ pagamentoExame.seliquidado }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.pagamentoExame.exame">Exame</span></dt>
+        <dd>
+          <div *ngIf="pagamentoExame.exame">
+            <a [routerLink]="['/exame', pagamentoExame.exame?.id, 'view']">{{ pagamentoExame.exame?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pagamento-exame', pagamentoExame.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

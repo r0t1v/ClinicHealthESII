@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Exame.
+    -->
+    <changeSet id="20210604131011-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="nomemedico_id"
+                                 baseTableName="exame"
+                                 constraintName="fk_exame__nomemedico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medico"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipoexame_id"
+                                 baseTableName="exame"
+                                 constraintName="fk_exame__tipoexame_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resultado_exame"/>
+
+        <addForeignKeyConstraint baseColumnNames="conta_clinica_id"
+                                 baseTableName="exame"
+                                 constraintName="fk_exame__conta_clinica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conta_clinica"/>
+    </changeSet>
+</databaseChangeLog>

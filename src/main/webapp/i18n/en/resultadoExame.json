@@ -1,0 +1,27 @@
+{
+  "clinicHealthSimpleApp": {
+    "resultadoExame": {
+      "home": {
+        "title": "Resultado Exames",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resultado Exame",
+        "createOrEditLabel": "Create or edit a Resultado Exame",
+        "notFound": "No Resultado Exames found"
+      },
+      "created": "A new Resultado Exame is created with identifier {{ param }}",
+      "updated": "A Resultado Exame is updated with identifier {{ param }}",
+      "deleted": "A Resultado Exame is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resultado Exame {{ id }}?"
+      },
+      "detail": {
+        "title": "Resultado Exame"
+      },
+      "id": "ID",
+      "descricao": "Descricao",
+      "prescricao": "Prescricao",
+      "indicacao": "Indicacao",
+      "contraindicacao": "Contraindicacao"
+    }
+  }
+}

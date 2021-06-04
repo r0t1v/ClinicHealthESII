@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="enderecoPaciente">
+      <h2 data-cy="enderecoPacienteDetailsHeading">
+        <span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.detail.title">Endereco Paciente</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.cidade">Cidade</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.cidade }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.logradouro">Logradouro</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.logradouro }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.bairro">Bairro</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.bairro }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.numero">Numero</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.referencia">Referencia</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.referencia }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.cep">Cep</span></dt>
+        <dd>
+          <span>{{ enderecoPaciente.cep }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.enderecoPaciente.paciente">Paciente</span></dt>
+        <dd>
+          <div *ngIf="enderecoPaciente.paciente">
+            <a [routerLink]="['/paciente', enderecoPaciente.paciente?.id, 'view']">{{ enderecoPaciente.paciente?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/endereco-paciente', enderecoPaciente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

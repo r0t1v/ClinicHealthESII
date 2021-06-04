@@ -1,0 +1,29 @@
+{
+  "clinicHealthSimpleApp": {
+    "contaClinica": {
+      "home": {
+        "title": "Conta Clinicas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Conta Clinica",
+        "createOrEditLabel": "Criar ou editar Conta Clinica",
+        "notFound": "Nenhum Conta Clinica encontrado"
+      },
+      "created": "Um novo Conta Clinica foi criado com o identificador {{ param }}",
+      "updated": "Um Conta Clinica foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Conta Clinica foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Conta Clinica {{ id }}?"
+      },
+      "detail": {
+        "title": "Conta Clinica"
+      },
+      "id": "ID",
+      "cpf": "Cpf",
+      "senha": "Senha",
+      "cpf": "Cpf",
+      "cpf": "Cpf",
+      "cpf": "Cpf",
+      "cpf": "Cpf"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contaClinica">
+      <h2 data-cy="contaClinicaDetailsHeading">
+        <span jhiTranslate="clinicHealthSimpleApp.contaClinica.detail.title">Conta Clinica</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contaClinica.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.contaClinica.cpf">Cpf</span></dt>
+        <dd>
+          <span>{{ contaClinica.cpf }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.contaClinica.senha">Senha</span></dt>
+        <dd>
+          <span>{{ contaClinica.senha }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.contaClinica.cpf">Cpf</span></dt>
+        <dd>
+          <div *ngIf="contaClinica.cpf">
+            <a [routerLink]="['/paciente', contaClinica.cpf?.id, 'view']">{{ contaClinica.cpf?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/conta-clinica', contaClinica.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

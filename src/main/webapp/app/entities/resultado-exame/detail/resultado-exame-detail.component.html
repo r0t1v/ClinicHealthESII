@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resultadoExame">
+      <h2 data-cy="resultadoExameDetailsHeading">
+        <span jhiTranslate="clinicHealthSimpleApp.resultadoExame.detail.title">Resultado Exame</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resultadoExame.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.resultadoExame.descricao">Descricao</span></dt>
+        <dd>
+          <span>{{ resultadoExame.descricao }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.resultadoExame.prescricao">Prescricao</span></dt>
+        <dd>
+          <span>{{ resultadoExame.prescricao }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.resultadoExame.indicacao">Indicacao</span></dt>
+        <dd>
+          <span>{{ resultadoExame.indicacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="clinicHealthSimpleApp.resultadoExame.contraindicacao">Contraindicacao</span></dt>
+        <dd>
+          <span>{{ resultadoExame.contraindicacao }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resultado-exame', resultadoExame.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

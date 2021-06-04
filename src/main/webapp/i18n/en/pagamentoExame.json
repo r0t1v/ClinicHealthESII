@@ -1,0 +1,27 @@
+{
+  "clinicHealthSimpleApp": {
+    "pagamentoExame": {
+      "home": {
+        "title": "Pagamento Exames",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Pagamento Exame",
+        "createOrEditLabel": "Create or edit a Pagamento Exame",
+        "notFound": "No Pagamento Exames found"
+      },
+      "created": "A new Pagamento Exame is created with identifier {{ param }}",
+      "updated": "A Pagamento Exame is updated with identifier {{ param }}",
+      "deleted": "A Pagamento Exame is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pagamento Exame {{ id }}?"
+      },
+      "detail": {
+        "title": "Pagamento Exame"
+      },
+      "id": "ID",
+      "formapagamento": "Formapagamento",
+      "conteudo": "Conteudo",
+      "seliquidado": "Seliquidado",
+      "exame": "Exame"
+    }
+  }
+}

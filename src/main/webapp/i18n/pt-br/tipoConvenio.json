@@ -1,0 +1,28 @@
+{
+  "clinicHealthSimpleApp": {
+    "tipoConvenio": {
+      "home": {
+        "title": "Tipo Convenios",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Tipo Convenio",
+        "createOrEditLabel": "Criar ou editar Tipo Convenio",
+        "notFound": "Nenhum Tipo Convenio encontrado"
+      },
+      "created": "Um novo Tipo Convenio foi criado com o identificador {{ param }}",
+      "updated": "Um Tipo Convenio foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Tipo Convenio foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Tipo Convenio {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Convenio"
+      },
+      "id": "ID",
+      "convenio": "Convenio",
+      "codigoconvenio": "Codigoconvenio",
+      "nomeconvenio": "Nomeconvenio",
+      "contato": "Contato",
+      "contaClinica": "Conta Clinica"
+    }
+  }
+}
