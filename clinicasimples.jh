@@ -1,0 +1,71 @@
+entity Paciente {
+	cpf String,
+    nome String,
+    idade String
+}
+entity EnderecoPaciente {
+	cidade String,
+    logradouro String,
+    bairro String,
+    numero Integer,
+    referencia String,
+    cep String
+}
+entity ContatoPaciente {
+	tipo String,
+    conteudo String
+}
+entity ContaClinica {
+	cpf String required,
+    senha String
+}
+entity TipoConvenio {
+	convenio String,
+	codigoconvenio Integer,
+    nomeconvenio String,
+    contato String
+}
+entity Exame {
+	tipoexame String,
+    valorexame String,
+    descontoconvenio String,
+    nomemmedico String,
+    prerequisito TextBlob,
+    datasolicitacao ZonedDateTime,
+    dataresultado ZonedDateTime
+}
+entity Medico {
+	crm Integer,
+    nome Integer,
+    graduacao String,
+    atuacao String
+}
+entity PagamentoExame {
+	formapagamento String,
+	conteudo String,
+	seliquidado Boolean
+}
+entity ResultadoExame {
+	descricao String,
+	prescricao String,
+	indicacao String,
+    contraindicacao String
+}
+relationship OneToOne {
+	ContaClinica{cpf} to Paciente{cpf},
+    Paciente{cpf} to ContaClinica{cpf},
+    Exame{nomemedico} to Medico{nome},
+    Exame{tipoexame} to ResultadoExame
+}
+relationship OneToMany {
+	Paciente{cpf} to EnderecoPaciente,
+    Paciente{cpf} to ContatoPaciente,
+    Exame{valorexame} to PagamentoExame,
+    ContaClinica{cpf} to TipoConvenio,
+    ContaClinica{cpf} to Exame
+}
+// Set pagination options
+paginate * with pagination
+dto * with mapstruct
+service all with serviceImpl
+filter *
